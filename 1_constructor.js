@@ -1,4 +1,4 @@
-//constructor
+//Constructor
 
 function Book(title, author, year) {
   this.title = title;

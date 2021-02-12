@@ -10,15 +10,13 @@ class Book {
 //Magazine Subclass
 class Magazine extends Book {
   constructor(title, author, year, month) {
-    // super() calls the parent constructor
+    // super() gets the Book class properties
     super(title, author, year);
     this.month = month;
   }
 }
 
 // Instantiate Magazine
-const mag1 = new Magazine("Mag One", "John Doe", "2018", "Jan");
+const mag1 = new Magazine('Mag 1', 'John Doe', '2018', 'January')
 
 console.log(mag1.getSummary());
-
-// using subclasses is a lot easier than using inheritance with es5. We don't have to add prototypes
