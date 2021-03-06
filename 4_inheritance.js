@@ -1,32 +1,44 @@
 function Book(title, author, year) {
-  this.title = title;
-  this.author = author;
-  this.year = year;
+  this.title = title
+  this.author = author
+  this.year = year
 }
 
 //getSummary
-Book.prototype.getSummary = function() {
-  return `${this.title} was written by ${this.author} in ${this.year}`;
-};
-
-// Magazine Constructor 
-// Magazine will inherit the Book Object properties
-// Magazine owns the month property
-function Magazine(title, author, year, month) {
-  // Object.call() gets the properties
-  // 'this' calls the Object itself
-  Book.call(this, title, author, year);
-
-  // Specify the Magazine's property then
-  this.month = month;
+Book.prototype.getSummary = function () {
+  return `${this.title} was written by ${this.author} in ${this.year}`
 }
 
-// Inherit prototype from Book Object
-Magazine.prototype = Object.create(Book.prototype);
-// Use Magazine Constructor 
-Magazine.prototype.constructor = Magazine;
+const book1 = new Book('Dune', 'Jack Doe', 1998)
+console.log(book1.getSummary())
 
-// Instantiate Magazine Object
-const mag1 = new Magazine('Mag One', 'John Doe', '2018', 'Jan');
+// Magazine constructor
+// inherites title, author and year from Book
+function Magazine(title, author, year, month, membership) {
+  Book.call(this, title, author, year)
+  this.month = month
+  this.membership = membership
+}
 
-console.log(mag1);
+// Inherit Book prototype methods
+Magazine.prototype = Object.create(Book.prototype)
+// Make Magazine.prototype return Magazine()
+Magazine.prototype.constructor = Magazine
+
+// Create Magazine
+const magazine1 = new Magazine(
+  'Lonely Planet',
+  'Lonely Planet Media NY',
+  2020,
+  'January',
+  'Standard'
+)
+
+console.log(magazine1)
+
+// Magazine getSummary
+Magazine.prototype.getSummary = function () {
+  return `${this.title} was written by ${this.author} in ${this.year}. Thank you for your ${this.membership} membership purchase.`
+}
+
+console.log(magazine1.getSummary())

@@ -1,27 +1,22 @@
-const bookProtos = {
-  getSummary: function() {
-    return `${this.title} was written by ${this.author} in ${this.year}`;
+const bookPrototypes = {
+  getSummary: function () {
+    return `Summary: ${this.title} was written by ${this.author} in ${
+      this.year
+    } and ${this.revised ? 'was revised.' : 'was not revised yet.'}`
   },
-  getAge: function() {
-    const years = new Date().getFullYear() - this.year;
-    return `${this.title} is ${years} years old`;
-  }
+
+  getRevised: function () {
+    this.revised = true
+  },
 }
 
-// Create Object
-/* const book1 = Object.create(bookProtos);
-book1.title = 'Book One';
-book1.author = 'John Doe';
-book1.year = '2018'; */
+// Create a Book
+const book1 = Object.create(bookPrototypes, {
+  title: { value: 'Cosmos' },
+  author: { value: 'Carl Sagan' },
+  year: { value: 1992 },
+})
 
-
-// Object.create(protos, {Object});
-const book1 = Object.create(bookProtos, {
-  title:   { value: 'Book One' },
-  author : { value: 'John Doe' },
-  year:    { value: 2018 }
-});
-
-console.log(book1)
-console.log(book1.getAge())
+console.log(book1.getSummary())
+console.log(book1.getRevised())
 console.log(book1.getSummary())

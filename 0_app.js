@@ -3,14 +3,14 @@
 
 // a string is not an object. You can call methods on a string.
 // When a method is called on a string, js adds a wrapper to the string in the background.
-const s1 = "Hello";
-s1.toLocaleUpperCase();
-console.log(typeof s1); //string
+const s1 = 'Hello'
+s1.toLocaleUpperCase()
+console.log(typeof s1) //string
 
 // a string can be created as an object:
 
-const s2 = new String("Hello");
-console.log(typeof s2); // object
+const s2 = new String('Hello')
+console.log(typeof s2) // object
 
 //---------------
 
@@ -25,28 +25,28 @@ console.log(typeof s2); // object
 
 // book is an object literal
 const book1 = {
-  title: "Book one", //key: value pair is a property of book1
-  author: "John Doe",
-  year: "2013",
-  getSummary: function() {
-    return `${this.title} was written by ${this.author} in ${this.year}`;
-  }
-};
+  title: 'Book one', //key: value pair is a property of book1
+  author: 'John Doe',
+  year: '2013',
+  getSummary: function () {
+    return `${this.title} was written by ${this.author} in ${this.year}`
+  },
+}
 
 const book2 = {
-  title: "Book Two",
-  author: "John Doe",
-  year: "2016",
-  getSummary: function() {
-    return `${this.title} was written by ${this.author} in ${this.year}`;
-  }
-};
+  title: 'Book Two',
+  author: 'John Doe',
+  year: '2016',
+  getSummary: function () {
+    return `${this.title} was written by ${this.author} in ${this.year}`
+  },
+}
 
-console.log(book1.getSummary());
+console.log(book1.getSummary())
 
 //we can get value by calling:
-console.log(Object.values(book1));
+console.log(Object.values(book1))
 // we can also get keys by calling:
-console.log(Object.keys(book1));
+console.log(Object.keys(book1))
 
 // if we need to create more than one book, we should use a constructor: see constructor.js file

@@ -1,33 +1,27 @@
-class Book {
-  constructor(title, author, year) {
-    this.title = title;
-    this.author = author;
-    this.year = year;
+class Game {
+  constructor(name, gender, year, author) {
+    this.name = name
+    this.gender = gender
+    this.year = year
+    this.author = author
   }
 
   getSummary() {
-    return `${this.title} was written by ${this.author} in ${this.year}`;
+    return `${this.name} is a ${this.gender} game made in ${this.year} by ${this.author}`
   }
 
-  getAge() {
-    const years = new Date().getFullYear() - this.year;
-    return `${this.title} is ${years} years old`;
-  }
-
-  revise(newYear) {
-    this.year = newYear;
-    this.revised = true;
-  }
-
-  // static methods
-  static topBookStore() {
-    return 'Jacksohns'
+  reDesignedBy(newAuthor) {
+    this.author = newAuthor
   }
 }
 
-// Instantiate an Object
-const book1 = new Book('Book One', 'John Doe', '2013');
+const residentEvil7 = new Game(
+  'Resident Evil 7',
+  'Horror',
+  2019,
+  'Umbrella Corporation'
+)
 
-console.log(book1);
-book1.revise('2018');
-console.log(book1);
+console.log(residentEvil7.getSummary())
+residentEvil7.reDesignedBy('PlayStation')
+console.log(residentEvil7.getSummary())
